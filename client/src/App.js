@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import Home from './components/Home';
+import bgGif from './assets/bg.gif';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import './App.css';
+import Validate from './components/Validate';
+import Profile from './components/SellerProfile';
+import Buyer from './components/Buyer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='font-[Poppins] '>
+      <img src={bgGif} className='fixed -z-50 inline w-full h-full ' alt=""/>
+      <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/login' element={<Validate />} />
+        <Route exact path='/profile/seller' element={<Profile />} />
+        <Route exact path='/profile/buyer' element={<Buyer />} />
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
