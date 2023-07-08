@@ -4,7 +4,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import './App.css';
 import Validate from './components/Validate';
 import Profile from './components/SellerProfile';
-import Buyer from './components/Buyer';
+import Buyer from './components/BuyerProfile';
 
 function App() {
   return (

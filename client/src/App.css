@@ -9,8 +9,6 @@
   width:fit-content;
   padding: 25px;
   height:fit-content;
-  background-color: #ecf0f3;
-  border-radius: 12px;
   overflow: hidden;
   /* display: flex;
   align-items: center; */
@@ -20,11 +18,10 @@
 width:fit-content;
 height:460px;
 padding: 25px;
-background-color: #ecf0f3;
-border-radius: 12px;
 overflow: hidden;
 display: flex;
 align-items: center;
+
 }
 .both-main{
   display: flex;
@@ -33,11 +30,13 @@ align-items: center;
 width:fit-content;
 height:480px;
 padding: 25px;
-background-color: #ecf0f3;
 border-radius: 12px;
 overflow-x: hidden;
 overflow-y: scroll;
-box-shadow: 10px 10px 10px #d1d9e6;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 12.5px );
+  -webkit-backdrop-filter: blur( 12.5px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .form_input {
     width: 350px;
@@ -66,7 +65,7 @@ box-shadow: 10px 10px 10px #d1d9e6;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1.15px;
-  background-color: #4B70E2;
+  background-color: #D2042D;
   color: #f9f9f9;
   box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #f9f9f9;
   border: none;
@@ -110,7 +109,7 @@ box-shadow: 10px 10px 10px #d1d9e6;
 }
 
 .container input:checked ~ .check {
-  background-color: rgb(64, 64, 233);
+  background-color: #D2042D;
 }
 
 .check:after {
