@@ -4,6 +4,11 @@ const Signup = () => {
   const [option, setOption] = useState('Buyer');
   const [value, setValue] = useState('Pushcart');
 
+  const [name,setName] = useState("");
+  const [email,setEmail] = useState("");
+  const [number,setNumber] = useState("");
+  const [password,setPassword] = useState("");
+
   const handleChange = (event) => {
     setValue(event.target.value);
   };
@@ -14,15 +19,32 @@ const Signup = () => {
     console.log(selectedOption);
   }
 
+ async function handleSubmit(e){
+    e.preventDefault();
+    if(option === "Buyer"){
+      const newObj={name,email,mobile_number:number,password};
+      await fetch('http://localhost:5050/buyer', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newObj)
+          })
+        
+      console.log(newObj);
+      }
+
+  }
+
   return (
     <div className='main'>
         <h1 className=' font-bold text-2xl text-center mb-[10px]'>Sign Up</h1>
 
-      <form className='flex flex-col justify-center items-center'>
-        <input className='form_input' name='Name' type='text' placeholder='Enter the Name' required />
-        <input className='form_input' name='Email' type='email' placeholder='Enter the Email' required />
-        <input className='form_input' name='phonenumber' type='tel' placeholder='+91 97865xxxxx' pattern='+91 [0-9]{10}' required />
-        <input className='form_input' name='password' type='password' placeholder='Enter the Password' required />
+      <form className='flex flex-col justify-center items-center' onSubmit={handleSubmit}>
+        <input className='form_input' name='Name' type='text' placeholder='Enter the Name' required value={name} onChange={(e) => setName(e.target.value)}/>
+        <input className='form_input' name='Email' type='email' placeholder='Enter the Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <input className='form_input' name='phonenumber' type='tel' placeholder='+91 97865xxxxx' value={number} onChange={(e) => setNumber(e.target.value)} pattern='[0-9]{10}' required />
+        <input className='form_input' name='password' type='password' placeholder='Enter the Password' value={password} onChange={(e) => setPassword(e.target.value)} required />
 
         <span className='form_span'>Select Buyer or Seller</span>
 
