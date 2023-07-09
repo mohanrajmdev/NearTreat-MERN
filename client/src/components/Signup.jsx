@@ -120,6 +120,7 @@ const Signup = () => {
               </select>
             </label>
 
+
             <label>
               <input className='form_input' name='recipe' placeholder='Enter the recipes' type='text' />
               <br />
