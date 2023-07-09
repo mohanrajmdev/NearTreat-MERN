@@ -35,33 +35,6 @@ const Login = () => {
       });
   }
 
-
-async function handleSubmit(e){
-    e.preventDefault();
-    if(email === '' || password === '') {
-      
-      toast.warn('please enter the values ...', {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
-
-    return;
-    }
-    axios.get('http://localhost:5050/buyer',{email,password})
-    .then(result => {
-      console.log(result.data)
-      if(result.data === "success") navigate('/profile/buyer');
-    } )
-    .catch(err => console.log(err));
-    
-  }
-
   return (
     <div className='main'>
       <h1 className='font-bold text-2xl text-center mb-[10px]'>Login</h1>
