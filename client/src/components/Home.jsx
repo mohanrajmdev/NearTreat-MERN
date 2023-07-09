@@ -1,12 +1,28 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Navbar from './Navbar';
 import logoGif from '../assets/logo/NearTreat.gif';
 import { Link } from 'react-router-dom';
+import preloader from '../assets/preload.gif';
 
 const Home = () => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <div>
-      <Navbar />
+      {
+        loading?
+        <div className='flex justify-center items-center h-[100vh]'>
+        <img src={preloader} className='fixed z-50 inline w-[400px] h-[200px] ' alt=""/>
+        </div>:
+        <>
+        <Navbar />
      <div className='flex tablet:flex-row flex-col relative w-full h-full justify-center items-center'>
         <div className='w-[80%] m-[40px] tablet:m-[50px] p-[10px] tablet:w-[50%]'>
           <h1 className=' text-6xl font-semibold m-[10px]'><span className='text-[#D2042D]'>NearTreat </span>
@@ -27,6 +43,9 @@ const Home = () => {
         </div>
      </div>
      
+        </>
+      }
+      
     </div>
   )
 }
