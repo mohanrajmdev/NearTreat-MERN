@@ -30,7 +30,9 @@ router.post("/", async (req, res) => {
     password: req.body.password,
     stall_type: req.body.stall_type,
     recipes: req.body.recipes,
-    location: req.body.location
+    street: req.body.location,
+    city: req.body.location,
+    Distict: req.body.location,
   };
   let collection = await db.collection("sellers");
   let result = await collection.insertOne(newDocument);
@@ -48,7 +50,9 @@ router.patch("/:id", async (req, res) => {
       password: req.body.password,
       stall_type: req.body.stall_type,
       recipes: req.body.recipes,
-      location: req.body.location
+      street: req.body.location,
+      city: req.body.location,
+      Distict: req.body.location,
     }
   };
 
