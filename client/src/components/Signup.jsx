@@ -24,7 +24,6 @@ const Signup = () => {
     console.log(selectedOption);
   }
 
-<<<<<<< HEAD
  async function handleSubmit(e){
     e.preventDefault();
     if(option === "Buyer"){
@@ -41,53 +40,6 @@ const Signup = () => {
       }
 
   }
-=======
-  const handleLocationClick = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-          setCurrentLocation({ latitude, longitude });
-          console.log('Latitude:', latitude);
-          console.log('Longitude:', longitude);
-          fetchLocationDetails(latitude, longitude);
-        },
-        (error) => {
-          console.error('Error getting geolocation:', error);
-        }
-      );
-    } else {
-      console.error('Geolocation is not supported by this browser.');
-    }
-  };
-
-  const fetchLocationDetails = async (latitude, longitude) => {
-    try {
-      // Replace YOUR_API_KEY with your actual MapQuest API key
-      const apiKey = '1YCcEbdT3y5XkYbLvlnKK46SSWYjEkYa';
-      const geocodingAPI = `https://www.mapquestapi.com/geocoding/v1/reverse?key=${apiKey}&location=${latitude},${longitude}`;
-
-      const response = await fetch(geocodingAPI);
-      const data = await response.json();
-
-      if (response.ok) {
-        const { street, adminArea5: city, adminArea4: district } = data.results[0].locations[0];
-        setStreet(street || '');
-        setCity(city || '');
-        setDistrict(district || '');
-      } else {
-        console.error('Error getting location details:', data.error || 'Unknown error');
-      }
-    } catch (error) {
-      console.error('Error getting location details:', error);
-    }
-  };
-
-  useEffect(() => {
-    handleLocationClick(); // Call handleLocationClick on component mount to get initial location
-  }, []);
->>>>>>> 44f37180743b39d9b915885692871b8ae9478b96
 
   return (
     <div className='main'>
