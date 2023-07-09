@@ -6,9 +6,17 @@ const router = express.Router();
 
 // Get all buyers
 router.get("/", async (req, res) => {
+  const {email,password} = req.body;
   let collection = await db.collection("buyers");
-  let results = await collection.find({}).toArray();
-  res.send(results).status(200);
+  let results = await collection.findOne({email:email});
+  if(results){
+    console.log(results,email,password);
+    if(results.password === password){
+    res.json("success").status(200);
+    return;
+    }
+  }
+  res.json("fail").status(400);
 });
 
 // Get a single buyer by id
