@@ -9,8 +9,9 @@ router.get("/", async (req, res) => {
   const {email,password} = req.body;
   let collection = await db.collection("buyers");
   let results = await collection.findOne({email:email});
+  console.log(results,email,password);
   if(results){
-    console.log(results,email,password);
+   
     if(results.password === password){
     res.json("success").status(200);
     return;
@@ -36,7 +37,12 @@ router.post("/", async (req, res) => {
     mobile_number: req.body.mobile_number,
     email: req.body.email,
     password: req.body.password,
-    items: req.body.items
+    items: req.body.items,
+    latitude: req.body.location,
+    longitude: req.body.location,
+    current_location: req.body.location,
+    Distict: req.body.location
+
   };
   let collection = await db.collection("buyers");
   let result = await collection.insertOne(newDocument);
@@ -52,7 +58,11 @@ router.patch("/:id", async (req, res) => {
       mobile_number: req.body.mobile_number,
       email: req.body.email,
       password: req.body.password,
-      items: req.body.items
+      items: req.body.items,
+      latitude: req.body.location,
+      longitude: req.body.location,
+      current_location: req.body.location,
+      Distict: req.body.location
     }
   };
 
