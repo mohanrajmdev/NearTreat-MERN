@@ -16,12 +16,12 @@ const Buyer = () => {
 
                 <label className='m-[10px] flex flex-col justify-center items-center tablet:w-[30%]'>
 
-                <span className='text-lg '>Enter the recipes you want to buy </span><br/>
-                <input className='form_input' name="recipe" placeholder="Enter the recipes" type='text' /><br/>
+                  <span className='text-lg '>Enter the recipes you want to buy </span><br/>
+                  <input className='form_input' name="recipe" placeholder="Enter the recipes" type='text' /><br/>
                 
                 </label>
 
-                <div className='flex flex-row justify-between items-end bg-[#ecf0f3] tablet:w-[25%] m-[10px] rounded-[12px] shadow-[0px_10px_10px_10px_#00000024]'>
+                <div className='flex flex-row justify-between items-end bg-[#ecf0f3] tablet:w-[25%] m-[10px] rounded-[12px] shadow-[0px_10px_5px_10px_#00000024]'>
                     <div className='text-lg p-[10px] '>Your location</div>
                     <div className=' bg-[#D2042D] p-[10px] rounded-[12px] text-white text-lg font-semibold cursor-pointer w-fit h-fit'>Click here</div>
                 </div>
